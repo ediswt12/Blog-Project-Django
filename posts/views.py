@@ -9,7 +9,7 @@ def get_author(user):
     return None
 
 def homepage (request):
-    categories = Category.objects.all()[0:3]
+    categories = Category.objects.all()[0:5]
     featured = Post.objects.filter(featured=True)
     latest = Post.objects.order_by('-timestamp')[0:3]
     context= {
