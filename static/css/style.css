@@ -1,0 +1,7 @@
+.nav-blog {
+    color: red !important;
+}
+
+.nav-blog:hover {
+    color: green !important;
+}
