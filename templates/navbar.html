@@ -1,6 +1,6 @@
 {% load markdown_extras %}
 
-{% get_categories as category_list %}
+
     
     <header class="border-b-4 border-pink-500 text-gray-600 body-font">
     <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
@@ -8,8 +8,8 @@
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-pink-500 rounded-full" viewBox="0 0 24 24">
           <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
         </svg>
-        <a href="{% url 'homepage' %}" class="ml-3 text-xl">
-          My blog</a>
+        <a href="{% url 'homepage' %}" class="nav-blog ml-3 text-xl"> 
+          edisswt blogu</a>
       </a>
       <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
         <a href="{% url 'homepage' %}" class="mr-5 hover:text-gray-900 rounded-lg hover:bg-pink-200 inline-flex items-center">
@@ -41,13 +41,17 @@
     class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
     <div class="py-1" role="none">
       <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
-      {% for category in category_list %}
-          <a href="{% url 'postlist' category.slug %}" class="text-gray-700 block px-4 py-2 text-sm rounded-lg hover:bg-pink-200 " role="menuitem" tabindex="-1" id="menu-item-0">
-          {{ category.title }}
-          </a>
-      {% endfor %}
+       {% for category in categories %}
+  <a href="{% url 'category_posts' category.slug %}"
+     class="text-gray-700 block px-4 py-2 text-sm rounded-lg hover:bg-pink-200">
+     {{ category.name }}
+  </a>
+{% endfor %}
+
+
         <a href="{% url 'allposts' %}" type="submit" class="text-gray-700 block w-full text-left px-4 py-2 text-sm rounded-lg hover:bg-pink-200" role="menuitem" tabindex="-1" id="menu-item-3">
         See all posts</a> 
+        
     </div>
   </div>
 </div>
