@@ -1,0 +1,10 @@
+<!-- polls/templates/polls/poll_list.html -->
+<h1>Polls</h1> 
+
+<ul>
+{% for poll in polls %}
+    <li>{{ poll.question }} - Created at: {{ poll.created_at }}</li>
+{% empty %}
+    <li>No polls available.</li>
+{% endfor %}
+</ul>
