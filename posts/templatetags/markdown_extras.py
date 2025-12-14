@@ -14,4 +14,4 @@ def markdown(value):
 
 @register.simple_tag
 def get_categories():
-    return Category.objects.all()[0:3]
+    return Category.objects.all()[0:5]
