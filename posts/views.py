@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.db.models import Q
 from .models import Category, Post, Author, Poll, Option, About, Tag, Comment
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 def get_author(user):
     qs = Author.objects.filter(user=user)
@@ -63,7 +64,7 @@ def tags_list(request):
     tags = Tag.objects.all()
     return render(request, 'tags_list.html', {'tags': tags})
 
-
+@login_required
 def like_post(request, post_id):
     post = Post.objects.get(id=post_id)
     if request.user in post.likes.all():
@@ -72,6 +73,7 @@ def like_post(request, post_id):
         post.likes.add(request.user)     # Əks halda, əlavə et
     return redirect(request.META.get('HTTP_REFERER', '/'))
 
+@login_required
 def bookmark_post(request, post_id):
     post = Post.objects.get(id=post_id)
     if request.user in post.bookmarks.all():
@@ -122,13 +124,14 @@ def poll_list(request):
     return render(request, 'poll_list.html', {'polls': polls})
 
 
+@login_required
 def vote_poll(request, poll_id, option_id):
-    poll = Poll.objects.all(Poll, id=poll_id)
-    option = Option.objects.all(Option, id=option_id, poll=poll)
-    
+    poll = Poll.objects.get(id=poll_id)
+    option = Option.objects.get(id=option_id, poll=poll)
+
     if request.user in option.votes.all():
         option.votes.remove(request.user)
     else:
         option.votes.add(request.user)
-    
+
     return redirect(request.META.get('HTTP_REFERER', '/'))
