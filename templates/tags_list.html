@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tags</title>
+</head>
+<body>
+    <h1>Tag siyahısı</h1>
+
+    <ul>
+        {% for tag in tags %}
+            <li>{{ tag.name }} – {{ tag.created_at }}</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
