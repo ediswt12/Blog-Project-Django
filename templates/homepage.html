@@ -35,7 +35,7 @@
           Welcome to <br class="block md:hidden" />
           <span class="relative">
             <span class="h-20 pt-2 overflow-x-hidden whitespace-nowrap text-brand-accent">
-              MY BLOG <span class="text-3xl md:text-5xl">👋</span>
+              MY BLOGG <span class="text-3xl md:text-5xl">👋</span>
             </span>
             <span
               class="cursor absolute -bottom-0 left-0 -top-1 inline-block bg-white w-full animate-type will-change"
@@ -52,7 +52,7 @@
               <div class="transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 w-full bg-cover bg-center bg-gray-300 rounded-lg " style="background-image: url('{{ category.thumbnail.url }}')">
                 <div class="h-full bg-white-900 bg-opacity-40 hover:bg-opacity-70 transition duration-300 ease-in-out px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
                 <h2 class="tracking-widest text-1xl title-font font-serif text-black-800 mb-1">
-                  CATEGORY</h2>
+                  CATEGORYYY</h2>
                 <h1 class="title-font sm:text-2xl text-xl font-serif text-gray-900 mb-3">
                   {{ category.title }}</h1>
                 <p class="leading-relaxed mb-3">
@@ -79,6 +79,12 @@
     width: 20rem;
 	}
 </style>
+
+<section class="mt-10">
+    <h2 class="text-xl font-bold mb-4">Polls</h2>
+    {% include 'polls/poll_list.html' %}
+</section>
+
 <section class="blog text-gray-700 body-font">
       <div class="container px-5 py-24 mx-auto">
         <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
